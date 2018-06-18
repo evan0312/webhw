@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+       td{
+		    margin: 2px;
+			border-style: none;
+			background-color:#FFCC99;
+            width:50px;
+            height:50px;
+            text-align: center;
+			box-shadow: 1px 1px 2px #888888;
+        }
+        input{
+	    height:20px;
+        }
+     </style>
+
+<script>
+function getvalue()
+{
+	var tbEl= document.getElementById('t1');
+	var x=document.getElementById('a').value;	
+	var n=Number(x);
+		while(tbEl.hasChildNodes()){
+		tbEl.removeChild(tbEl.lastChild);
+	}
+    if(n>0&&n<10)
+	{
+	for(var i = 1; i <= n; i++){
+		var trEl = document.createElement('tr');
+		for(var j=1; j<= n; j++){
+			var tdEl = document.createElement('td');			
+			tdEl.innerHTML= i*j ;
+			trEl.appendChild(tdEl);	
+		}
+		tbEl.appendChild(trEl);
+	}
+   }else alert("请输入1-9之间的数字！")
+}
+</script>
+</head>
+
+<body>
+<input type="text" id="a" placeholder="请输入数字1-9">
+<input type="button" value="确认" onclick="getvalue()">
+
+<table  id="t1"></table>
+</body>
+
+</html>
